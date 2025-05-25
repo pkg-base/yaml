@@ -44,23 +44,21 @@ supported since they're a poor design and are gone in YAML 1.2.
 Installation and usage
 ----------------------
 
-The import path for the package is *gopkg.in/yaml.v3*.
+The import path for the package is *github.com/pkg-base/yaml*.
 
 To install it, run:
 
-    go get gopkg.in/yaml.v3
+    go get github.com/pkg-base/yaml
 
 API documentation
 -----------------
 
-If opened in a browser, the import path itself leads to the API documentation:
-
-  - [https://gopkg.in/yaml.v3](https://gopkg.in/yaml.v3)
+The API documentation can be found here: https://pkg.go.dev/github.com/pkg-base/yaml
 
 API stability
 -------------
 
-The package API for yaml v3 will remain stable as described in [gopkg.in](https://gopkg.in).
+The package API for yaml v3 will remain stable.
 
 
 License
@@ -80,7 +78,7 @@ import (
         "fmt"
         "log"
 
-        "gopkg.in/yaml.v3"
+        "github.com/pkg-base/yaml"
 )
 
 var data = `
@@ -102,27 +100,27 @@ type T struct {
 
 func main() {
         t := T{}
-    
+
         err := yaml.Unmarshal([]byte(data), &t)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- t:\n%v\n\n", t)
-    
+
         d, err := yaml.Marshal(&t)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- t dump:\n%s\n\n", string(d))
-    
+
         m := make(map[interface{}]interface{})
-    
+
         err = yaml.Unmarshal([]byte(data), &m)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- m:\n%v\n\n", m)
-    
+
         d, err = yaml.Marshal(&m)
         if err != nil {
                 log.Fatalf("error: %v", err)
@@ -140,8 +138,8 @@ This example will generate the following output:
 --- t dump:
 a: Easy!
 b:
-  c: 2
-  d: [3, 4]
+    c: 2
+    d: [3, 4]
 
 
 --- m:
@@ -150,9 +148,9 @@ map[a:Easy! b:map[c:2 d:[3 4]]]
 --- m dump:
 a: Easy!
 b:
-  c: 2
-  d:
-  - 3
-  - 4
+    c: 2
+    d:
+        - 3
+        - 4
 ```
 
