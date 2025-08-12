@@ -1,4 +1,3 @@
-
 # Hello World!
 
 This fork will be maintained until my alternative library (with fully compatible API) will be in place. The work is currently in progress within this organization.
@@ -45,21 +44,23 @@ supported since they're a poor design and are gone in YAML 1.2.
 Installation and usage
 ----------------------
 
-The import path for the package is *github.com/pkg-base/yaml*.
+The import path for the package is *gopkg.in/yaml.v3*.
 
 To install it, run:
 
-    go get github.com/pkg-base/yaml
+    go get gopkg.in/yaml.v3
 
 API documentation
 -----------------
 
-The API documentation can be found here: https://pkg.go.dev/github.com/pkg-base/yaml
+If opened in a browser, the import path itself leads to the API documentation:
+
+  - [https://gopkg.in/yaml.v3](https://gopkg.in/yaml.v3)
 
 API stability
 -------------
 
-The package API for yaml v3 will remain stable.
+The package API for yaml v3 will remain stable as described in [gopkg.in](https://gopkg.in).
 
 
 License
@@ -79,7 +80,7 @@ import (
         "fmt"
         "log"
 
-        "github.com/pkg-base/yaml"
+        "gopkg.in/yaml.v3"
 )
 
 var data = `
@@ -101,27 +102,27 @@ type T struct {
 
 func main() {
         t := T{}
-
+    
         err := yaml.Unmarshal([]byte(data), &t)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- t:\n%v\n\n", t)
-
+    
         d, err := yaml.Marshal(&t)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- t dump:\n%s\n\n", string(d))
-
+    
         m := make(map[interface{}]interface{})
-
+    
         err = yaml.Unmarshal([]byte(data), &m)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- m:\n%v\n\n", m)
-
+    
         d, err = yaml.Marshal(&m)
         if err != nil {
                 log.Fatalf("error: %v", err)
@@ -139,8 +140,8 @@ This example will generate the following output:
 --- t dump:
 a: Easy!
 b:
-    c: 2
-    d: [3, 4]
+  c: 2
+  d: [3, 4]
 
 
 --- m:
@@ -149,8 +150,9 @@ map[a:Easy! b:map[c:2 d:[3 4]]]
 --- m dump:
 a: Easy!
 b:
-    c: 2
-    d:
-        - 3
-        - 4
+  c: 2
+  d:
+  - 3
+  - 4
 ```
+
