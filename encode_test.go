@@ -26,7 +26,7 @@ import (
 	"net"
 	"os"
 
-	"github.com/pkg-base/yaml.v3"
+	"github.com/pkg-base/yaml"
 
 	. "gopkg.in/check.v1"
 )
