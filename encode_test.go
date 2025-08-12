@@ -31,6 +31,24 @@ import (
 	. "gopkg.in/check.v1"
 )
 
+type jsonNumberT string
+
+func (j jsonNumberT) Int64() (int64, error) {
+	val, err := strconv.Atoi(string(j))
+	if err != nil {
+		return 0, err
+	}
+	return int64(val), nil
+}
+
+func (j jsonNumberT) Float64() (float64, error) {
+	return strconv.ParseFloat(string(j), 64)
+}
+
+func (j jsonNumberT) String() string {
+	return string(j)
+}
+
 var marshalIntTest = 123
 
 var marshalTests = []struct {
@@ -407,6 +425,20 @@ var marshalTests = []struct {
 	{
 		map[string]string{"a": "你好 #comment"},
 		"a: '你好 #comment'\n",
+	},
+
+	// json.Number support.
+	{
+		map[string]interface{}{"a": jsonNumberT("5")},
+		"a: 5\n",
+	},
+	{
+		map[string]interface{}{"a": jsonNumberT("100.5")},
+		"a: 100.5\n",
+	},
+	{
+		map[string]interface{}{"a": jsonNumberT("bogus")},
+		"a: bogus\n",
 	},
 
 	// Ensure MarshalYAML also gets called on the result of MarshalYAML itself.

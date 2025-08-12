@@ -803,6 +803,16 @@ var unmarshalTests = []struct {
 			"c": []interface{}{"d", "e"},
 		},
 	},
+
+	// json.Number support.
+	{
+		"a: 5\n",
+		&struct{ A jsonNumberT }{"5"},
+	},
+	{
+		"a: 5.5\n",
+		&struct{ A jsonNumberT }{"5.5"},
+	},
 }
 
 type M map[string]interface{}
