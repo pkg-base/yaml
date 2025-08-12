@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkg-base/yaml"
+	"github.com/pkg-base/yaml.v3"
 
 	. "gopkg.in/check.v1"
 )
