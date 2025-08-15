@@ -843,10 +843,6 @@ func yaml_emitter_emit_block_mapping_value(emitter *yaml_emitter_t, event *yaml_
 	return true
 }
 
-func yaml_emitter_silent_nil_event(emitter *yaml_emitter_t, event *yaml_event_t) bool {
-	return event.typ == yaml_SCALAR_EVENT && event.implicit && !emitter.canonical && len(emitter.scalar_data.value) == 0
-}
-
 // Expect a node.
 func yaml_emitter_emit_node(emitter *yaml_emitter_t, event *yaml_event_t,
 	root bool, sequence bool, mapping bool, simple_key bool) bool {
@@ -872,7 +868,7 @@ func yaml_emitter_emit_node(emitter *yaml_emitter_t, event *yaml_event_t,
 }
 
 // Expect ALIAS.
-func yaml_emitter_emit_alias(emitter *yaml_emitter_t, event *yaml_event_t) bool {
+func yaml_emitter_emit_alias(emitter *yaml_emitter_t, _ *yaml_event_t) bool {
 	if !yaml_emitter_process_anchor(emitter) {
 		return false
 	}
@@ -940,7 +936,7 @@ func yaml_emitter_emit_mapping_start(emitter *yaml_emitter_t, event *yaml_event_
 }
 
 // Check if the document content is an empty scalar.
-func yaml_emitter_check_empty_document(emitter *yaml_emitter_t) bool {
+func yaml_emitter_check_empty_document(_ *yaml_emitter_t) bool {
 	return false // [Go] Huh?
 }
 
