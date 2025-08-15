@@ -346,8 +346,7 @@ const (
 	yaml_BINARY_TAG = "tag:yaml.org,2002:binary"
 	yaml_MERGE_TAG  = "tag:yaml.org,2002:merge"
 
-	yaml_DEFAULT_SEQUENCE_TAG = yaml_SEQ_TAG // The default sequence tag is !!seq.
-	yaml_DEFAULT_MAPPING_TAG  = yaml_MAP_TAG // The default mapping tag is !!map.
+	yaml_DEFAULT_MAPPING_TAG = yaml_MAP_TAG // The default mapping tag is !!map.
 )
 
 type yaml_node_type_t int
