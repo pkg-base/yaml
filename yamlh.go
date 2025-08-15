@@ -339,7 +339,6 @@ const (
 	yaml_FLOAT_TAG     = "tag:yaml.org,2002:float"     // The tag !!float for float values.
 	yaml_TIMESTAMP_TAG = "tag:yaml.org,2002:timestamp" // The tag !!timestamp for date and time values.
 
-	yaml_SEQ_TAG = "tag:yaml.org,2002:seq" // The tag !!seq is used to denote sequences.
 	yaml_MAP_TAG = "tag:yaml.org,2002:map" // The tag !!map is used to denote mapping.
 
 	// Not in original libyaml.
