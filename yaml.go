@@ -151,7 +151,7 @@ func (n *Node) Decode(v interface{}) (err error) {
 	return nil
 }
 
-func unmarshal(in []byte, out interface{}, strict bool) (err error) {
+func unmarshal(in []byte, out interface{}, _ bool) (err error) {
 	defer handleErr(&err)
 	d := newDecoder()
 	p := newParser(in)
