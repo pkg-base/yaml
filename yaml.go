@@ -541,7 +541,7 @@ func getStructInfo(st reflect.Type) (*structInfo, error) {
 		info := fieldInfo{Num: i}
 
 		tag := field.Tag.Get("yaml")
-		if tag == "" && strings.Index(string(field.Tag), ":") < 0 {
+		if tag == "" && !strings.Contains(string(field.Tag), ":") {
 			tag = string(field.Tag)
 		}
 		if tag == "-" {
