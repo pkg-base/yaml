@@ -330,22 +330,6 @@ func (e *yaml_event_t) sequence_style() yaml_sequence_style_t { return yaml_sequ
 func (e *yaml_event_t) mapping_style() yaml_mapping_style_t   { return yaml_mapping_style_t(e.style) }
 
 // Nodes
-
-const (
-	yaml_NULL_TAG      = "tag:yaml.org,2002:null"      // The tag !!null with the only possible value: null.
-	yaml_BOOL_TAG      = "tag:yaml.org,2002:bool"      // The tag !!bool with the values: true and false.
-	yaml_STR_TAG       = "tag:yaml.org,2002:str"       // The tag !!str for string values.
-	yaml_INT_TAG       = "tag:yaml.org,2002:int"       // The tag !!int for integer values.
-	yaml_FLOAT_TAG     = "tag:yaml.org,2002:float"     // The tag !!float for float values.
-	yaml_TIMESTAMP_TAG = "tag:yaml.org,2002:timestamp" // The tag !!timestamp for date and time values.
-
-	yaml_MAP_TAG = "tag:yaml.org,2002:map" // The tag !!map is used to denote mapping.
-
-	// Not in original libyaml.
-	yaml_BINARY_TAG = "tag:yaml.org,2002:binary"
-	yaml_MERGE_TAG  = "tag:yaml.org,2002:merge"
-)
-
 type yaml_node_type_t int
 
 // Node types.
